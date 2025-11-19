@@ -12,7 +12,7 @@ test("defaults", (t) => {
     {
       fs,
       glob: {
-        sync() {
+        globSync() {
           return ["/version.js"];
         },
       },
@@ -73,7 +73,7 @@ current version: 0.0.0-development`),
       files: "README.md",
       fs,
       glob: {
-        sync() {
+        globSync() {
           return ["/README.md"];
         },
       },
@@ -110,7 +110,7 @@ current version: 0.0.0-development`),
       files: "README.md",
       fs,
       glob: {
-        sync() {
+        globSync() {
           return ["/README.md", "/my-app.js"];
         },
       },
@@ -153,7 +153,7 @@ test("version not found", (t) => {
       files: "*",
       fs,
       glob: {
-        sync() {
+        globSync() {
           return ["/foo.js", "/bar.js"];
         },
       },
@@ -191,7 +191,7 @@ module.exports.logVersion = () => console.log("0.0.0-development");`),
     {
       fs,
       glob: {
-        sync() {
+        globSync() {
           return ["/app.js"];
         },
       },
@@ -230,7 +230,7 @@ test("custom search", (t) => {
       placeholder: "{{VERSION}}",
       fs,
       glob: {
-        sync() {
+        globSync() {
           return ["/version.js"];
         },
       },

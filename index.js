@@ -8,7 +8,7 @@ module.exports = {
       placeholder = "0.0.0-development",
       // Add fs/glob options for testing only
       fs = require("fs"),
-      glob = require("glob"),
+      glob = require("tinyglobby"),
     },
     { cwd, nextRelease: { version } },
   ) {
@@ -23,7 +23,7 @@ module.exports = {
 
     // Turn files into flat array of matche file paths
     const existingFilePaths = []
-      .concat(...filesNormalized.map((path) => glob.sync(join(cwd, path))))
+      .concat(...filesNormalized.map((path) => glob.globSync(join(cwd, path))))
       .filter((path) => fs.statSync(path).isFile());
 
     debug("Existing files found: %o", existingFilePaths);
